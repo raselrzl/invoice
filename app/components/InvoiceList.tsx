@@ -9,11 +9,11 @@ import {
 import { InvoiceActions } from "./InvoiceActions";
 import prisma from "../utils/db";
 import { requireUser } from "../utils/hooks";
-/* import { formatCurrency } from "../utils/formatCurrency"; */
+import { formatCurrency } from "../utils/formatCurrency";
 import { Badge } from "@/components/ui/badge";
 /* import { EmptyState } from "./EmptyState"; */
 
-/* async function getData(userId: string) {
+async function getData(userId: string) {
   const data = await prisma.invoice.findMany({
     where: {
       userId: userId,
@@ -33,13 +33,13 @@ import { Badge } from "@/components/ui/badge";
   });
 
   return data;
-} */
+}
 export async function InvoiceList() {
- /*  const session = await requireUser();
-  const data = await getData(session.user?.id as string); */
+  const session = await requireUser();
+  const data = await getData(session.user?.id as string);
   return (
     <>
-     {/*  {data.length === 0 ? (
+  {/*     {data.length === 0 ? (
         <EmptyState
           title="No invoices found"
           description="Create an invoice to get started"
@@ -59,32 +59,32 @@ export async function InvoiceList() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {/* {data.map((invoice) => ( */}
-              <TableRow /* key={invoice.id} */>
-                <TableCell>#{/* {invoice.invoiceNumber} */}IID</TableCell>
-                <TableCell>{/* {invoice.clientName} */}rase</TableCell>
+            {data.map((invoice) => (
+              <TableRow key={invoice.id}>
+                <TableCell>#{invoice.invoiceNumber}</TableCell>
+                <TableCell>{invoice.clientName}</TableCell>
                 <TableCell>
-                {/*   {formatCurrency({
+                 {formatCurrency({
                     amount: invoice.total,
                     currency: invoice.currency as any,
-                  })} */}100
+                  })}
                 </TableCell>
                 <TableCell>
-                  <Badge>{/* {invoice.status} */}paid</Badge>
+                  <Badge>{invoice.status}</Badge>
                 </TableCell>
                 <TableCell>
-                 {/*  {new Intl.DateTimeFormat("en-US", {
+                  {new Intl.DateTimeFormat("en-US", {
                     dateStyle: "medium",
-                  }).format(invoice.createdAt)} */}22-11
+                  }).format(invoice.createdAt)}22-11
                 </TableCell>
-                <TableCell className="text-right">
-                  <InvoiceActions /* status={invoice.status} id={invoice.id} */ />
+                <TableCell className="text-right">....
+                 {/*  <InvoiceActions status={invoice.status} id={invoice.id} /> */}
                 </TableCell>
               </TableRow>
-           {/*  ))} */}
+           ))}
           </TableBody>
         </Table>
-      {/* )} */}
+   {/*    )} */}
     </>
   );
 }

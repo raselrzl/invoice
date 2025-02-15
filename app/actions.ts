@@ -5,7 +5,7 @@ import { parseWithZod } from "@conform-to/zod";
 import prisma from "./utils/db";
 import { redirect } from "next/navigation";
 import { invoiceSchema, onboardingSchema } from "./utils/zodSchemas";
-/* import { emailClient } from "./utils/mailtrap"; */
+import { emailClient } from "./utils/mailtrap";
 import { formatCurrency } from "./utils/formatCurrency"; 
 
 export async function onboardUser(prevState: any, formData: FormData) {
@@ -67,15 +67,15 @@ export async function createInvoice(prevState: any, formData: FormData) {
     },
   });
 
-  /* const sender = {
+  const sender = {
     email: "info@barsoapsverige.com",
-    name: "Rasel Miah",
-  }; */
+    name: "Slize",
+  };
 
- /*  emailClient.send({
+  emailClient.send({
     from: sender,
-    to: [{ email: "jan@alenix.de" }],
-    template_uuid: "3c01e4ee-a9ed-4cb6-bbf7-e57c2ced6c94",
+    to: [{ email: submission.value.clientEmail }],
+    template_uuid: "783474c4-7e0a-47f6-8270-537de66b5461",
     template_variables: {
       clientName: submission.value.clientName,
       invoiceNumber: submission.value.invoiceNumber,
@@ -91,7 +91,7 @@ export async function createInvoice(prevState: any, formData: FormData) {
           ? `http://localhost:3000/api/invoice/${data.id}`
           : `https://invoice-lilac-six.vercel.app/api/invoice/${data.id}`,
     },
-  }); */
+  });
 
   return redirect("/dashboard/invoices");
 }
