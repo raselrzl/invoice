@@ -6,7 +6,7 @@ export const onboardingSchema = z.object({
   address: z.string().min(2, "Address is required"),
 });
 
-/* export const invoiceSchema = z.object({
+export const invoiceSchema = z.object({
   invoiceName: z.string().min(1, "Invoice Name is required"),
   total: z.number().min(1, "1$ is minimum"),
 
@@ -40,4 +40,3 @@ export const onboardingSchema = z.object({
 
   invoiceItemRate: z.number().min(1, "Rate min 1"),
 });
- */

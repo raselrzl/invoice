@@ -4,9 +4,9 @@ import { requireUser } from "./utils/hooks";
 import { parseWithZod } from "@conform-to/zod";
 import prisma from "./utils/db";
 import { redirect } from "next/navigation";
-import { onboardingSchema } from "./utils/zodSchemas";
-/* import { emailClient } from "./utils/mailtrap";
-import { formatCurrency } from "./utils/formatCurrency"; */
+import { invoiceSchema, onboardingSchema } from "./utils/zodSchemas";
+/* import { emailClient } from "./utils/mailtrap"; */
+import { formatCurrency } from "./utils/formatCurrency"; 
 
 export async function onboardUser(prevState: any, formData: FormData) {
   const session = await requireUser();
@@ -32,7 +32,7 @@ export async function onboardUser(prevState: any, formData: FormData) {
 
   return redirect("/dashboard");
 }
-/* 
+ 
 export async function createInvoice(prevState: any, formData: FormData) {
   const session = await requireUser();
 
@@ -67,12 +67,12 @@ export async function createInvoice(prevState: any, formData: FormData) {
     },
   });
 
-  const sender = {
-    email: "hello@demomailtrap.com",
-    name: "Jan Marshal",
-  };
+  /* const sender = {
+    email: "info@barsoapsverige.com",
+    name: "Rasel Miah",
+  }; */
 
-  emailClient.send({
+ /*  emailClient.send({
     from: sender,
     to: [{ email: "jan@alenix.de" }],
     template_uuid: "3c01e4ee-a9ed-4cb6-bbf7-e57c2ced6c94",
@@ -89,13 +89,13 @@ export async function createInvoice(prevState: any, formData: FormData) {
       invoiceLink:
         process.env.NODE_ENV !== "production"
           ? `http://localhost:3000/api/invoice/${data.id}`
-          : `https://invoice-marshal.vercel.app/api/invoice/${data.id}`,
+          : `https://invoice-lilac-six.vercel.app/api/invoice/${data.id}`,
     },
-  });
+  }); */
 
   return redirect("/dashboard/invoices");
 }
-
+/*
 export async function editInvoice(prevState: any, formData: FormData) {
   const session = await requireUser();
 
