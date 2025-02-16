@@ -75,7 +75,7 @@ export async function InvoiceList() {
                 <TableCell>
                   {new Intl.DateTimeFormat("en-US", {
                     dateStyle: "medium",
-                  }).format(invoice.createdAt)}22-11
+                  }).format(invoice.createdAt)}
                 </TableCell>
                 <TableCell className="text-right">
                   <InvoiceActions status={invoice.status} id={invoice.id} />
