@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Link from "next/link";
-import Logo from "@/public/logo.png";
+import Logo from "@/public/logotext.png";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -53,7 +53,7 @@ export default async function DashboardLayout({
               <Link href="/" className="flex items-center gap-2">
                 <Image src={Logo} alt="Logo" className="size-7" />
                 <p className="text-2xl font-bold">
-                  Invoice<span className="text-blue-600">Slize</span>
+                  Invoice<span className="text-blue-600"></span>
                 </p>
               </Link>
             </div>
