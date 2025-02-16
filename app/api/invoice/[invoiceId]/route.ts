@@ -57,10 +57,10 @@ export async function GET(
   pdf.setFont("helvetica");
 
   // Add the logo image to the PDF (top-left corner)
-  const logoX = 140; // X position of the logo
+  const logoX = 120; // X position of the logo
   const logoY = 15;  // Y position of the logo
-  const logoWidth = 50; // Width of the logo
-  const logoHeight = 8; // Height of the logo
+  const logoWidth = 80; // Width of the logo
+  const logoHeight = 25; // Height of the logo
   pdf.addImage(logoBase64, "PNG", logoX, logoY, logoWidth, logoHeight);
 
   // Push everything else down to avoid overlap with logo
