@@ -43,7 +43,7 @@ export async function GET(
     return NextResponse.json({ error: "Invoice not found" }, { status: 404 });
   }
 
-  const logoPath = path.join(process.cwd(), 'public', 'logotext.png');
+  const logoPath = path.join(process.cwd(), 'public', 'tal1.png');
   // Read the image file and convert to Base64
   const logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
 
@@ -162,14 +162,14 @@ export async function GET(
   // Column 1: Company Address
   pdf.setFontSize(10);
   pdf.setFont("helvetica", "normal");
-  pdf.text("Company Address: 1234 Random Street, City, Country", 20, footerY + 10);
-  pdf.text("Phone: +1234567890", 20, footerY + 15);
-  pdf.text("Email: contact@company.com", 20, footerY + 20);
+  pdf.text("Finspångsvägen 497, 605 80 Svärtinge", 20, footerY + 10);
+  pdf.text("Phone: 010-333 35 36", 20, footerY + 15);
+  pdf.text("Email: info@tallbackensgard.se", 20, footerY + 20);
 
   // Column 2: Bank Account Information
-  pdf.text("Bank Account: GB29 NWBK 6016 1331 9268 19", 120, footerY + 10);
-  pdf.text("Sort Code: 60-01-01", 120, footerY + 15);
-  pdf.text("IBAN: GB29 NWBK 6016 1331 9268 19", 120, footerY + 20);
+  pdf.text("Swish", 120, footerY + 10);
+  pdf.text("Betalkort", 120, footerY + 15);
+  pdf.text("IBAN: 545464665765", 120, footerY + 20);
 
   // Generate the PDF as buffer
   const pdfBuffer = Buffer.from(pdf.output("arraybuffer"));
