@@ -77,8 +77,8 @@ export async function InvoiceList() {
                     dateStyle: "medium",
                   }).format(invoice.createdAt)}22-11
                 </TableCell>
-                <TableCell className="text-right">....
-                 {/*  <InvoiceActions status={invoice.status} id={invoice.id} /> */}
+                <TableCell className="text-right">
+                  <InvoiceActions status={invoice.status} id={invoice.id} />
                 </TableCell>
               </TableRow>
            ))}

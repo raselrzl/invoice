@@ -95,7 +95,7 @@ export async function createInvoice(prevState: any, formData: FormData) {
 
   return redirect("/dashboard/invoices");
 }
-/*
+
 export async function editInvoice(prevState: any, formData: FormData) {
   const session = await requireUser();
 
@@ -134,14 +134,14 @@ export async function editInvoice(prevState: any, formData: FormData) {
   });
 
   const sender = {
-    email: "hello@demomailtrap.com",
-    name: "Jan Marshal",
+    email: "info@barsoapsverige.com",
+    name: "Slize",
   };
 
   emailClient.send({
     from: sender,
-    to: [{ email: "jan@alenix.de" }],
-    template_uuid: "9d04aa85-6896-48a8-94e9-b54354a48880",
+    to: [{ email: submission.value.clientEmail }],
+    template_uuid: "43d0a1da-1d81-4d04-9439-6e0a56a50055",
     template_variables: {
       clientName: submission.value.clientName,
       invoiceNumber: submission.value.invoiceNumber,
@@ -155,7 +155,7 @@ export async function editInvoice(prevState: any, formData: FormData) {
       invoiceLink:
         process.env.NODE_ENV !== "production"
           ? `http://localhost:3000/api/invoice/${data.id}`
-          : `https://invoice-marshal.vercel.app/api/invoice/${data.id}`,
+          : `https://invoice-lilac-six.vercel.app/api/invoice/${data.id}`,
     },
   });
 
@@ -189,4 +189,4 @@ export async function MarkAsPaidAction(invoiceId: string) {
   });
 
   return redirect("/dashboard/invoices");
-} */
+}
